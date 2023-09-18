@@ -1,0 +1,6 @@
+.button-list{
+    width: 100%;
+    display: flex;
+    overflow: hidden;
+    scroll-behavior: smooth;
+}

@@ -1,0 +1,22 @@
+.suggestions{
+   background-color: gray;
+   position: fixed;
+   padding: 15px 10px;
+   width: 33vw;
+   top: 60px;
+   left: 32vw;
+   /* z-index: 200; */
+   border-radius: 20px;
+}
+
+.suggestions-item{
+   display: flex;
+   gap:10px;
+   margin: 10px;
+   font-size: 15px;
+   font-weight: 700;
+}
+
+.suggestions-item li{
+    list-style: none;
+}

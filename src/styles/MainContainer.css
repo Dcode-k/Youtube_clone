@@ -1,0 +1,11 @@
+.main-container{
+    margin: 0 30px;
+    width:80vw;
+    /* background-color: aliceblue; */
+    /* max-height: 100vh;
+    overflow-y: scroll;
+    scroll-snap-type: y mandatory; */
+}
+.compressed-main-container{
+    width: 90vw;
+}

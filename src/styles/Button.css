@@ -1,0 +1,21 @@
+.button{
+    /* opacity: 0.6; */
+    color: white;
+    background-color: rgb(37, 36, 36);
+    border: none;
+    height: 35px;
+    border-radius:12px;
+    margin: 5px;
+    font-size: 14px;
+    padding: 8px 8px;
+    text-wrap: nowrap;
+    cursor: pointer;
+}
+.button:hover{
+    background-color:#5a5a5a ;
+}
+
+.allBtn{
+    background-color: white;
+    color: black;
+}

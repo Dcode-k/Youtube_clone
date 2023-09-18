@@ -1,0 +1,29 @@
+.video-card{
+  /* border: 2px solid white; */
+  width: 25vw;
+}
+.compress-video-card{
+    width: 21vw;
+}
+.thumbnailimg{
+    border-radius: 20px;
+    width: 25vw;
+}
+.compress-thumbnailimg{
+    width: 21vw;
+}
+.channel-title{
+      /* font-weight: 900; */
+       opacity: 0.7;
+       margin: 5px 0;
+}
+.video-title{
+    font-weight: 900;
+}
+.subpart{
+    margin: 10px 0;
+    display: flex;
+    gap: 10px;
+    justify-content:flex-start;
+    /* align-items: center; */
+}
