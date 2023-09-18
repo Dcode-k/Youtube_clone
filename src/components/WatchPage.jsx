@@ -6,6 +6,7 @@ import Carousel from "./Carousel";
 import "../styles/WatchPage.css";
 import { YOUTUBE_VIDEOS_API } from "../utils/constants";
 import {YOUTUBE_COMMENTS_API} from "../utils/constants"
+import { YOUTUBE_VTDEO_DETAILS_API } from "../utils/constants";
 
 const WatchPage = () => {
   const [searchParams, setSearchPArams] = useSearchParams();
@@ -33,11 +34,7 @@ const WatchPage = () => {
   useEffect(() =>{ getVideoDetails()}, []);
 
   async function getVideoDetails() {
-    const data = await fetch(
-      "https://youtube.googleapis.com/youtube/v3/videos?part=snippet&id=" +
-        videoId +
-        "&key=AIzaSyA56McOo_RYebgoNMShIxpGhwci9RSMwCg"
-    );
+    const data = await fetch(YOUTUBE_VTDEO_DETAILS_API+videoId);
     const videoDetails = await data.json();
     setVideoDetails(videoDetails.items[0]);
     // console.log(videoDetails);
