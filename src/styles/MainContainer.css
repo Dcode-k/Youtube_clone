@@ -9,3 +9,11 @@
 .compressed-main-container{
     width: 90vw;
 }
+
+/* mobile view */
+@media (max-width:320px){
+    .main-container{
+        margin: 0 0px;
+        width:100vw;
+    }
+}

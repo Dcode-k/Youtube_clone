@@ -1,8 +1,8 @@
-import "../styles/Header.css";
+import styles from "../styles/Header.module.css";
 import {useEffect, useState} from 'react'
 import Logo from "../assets/youtube.png";
 import { useDispatch, useSelector } from "react-redux";
-import { toggleMenu } from "../utils/appslice";
+import { closeSidebarModal, openSidebarModal, toggleMenu } from "../utils/appslice";
 import { YOUTUBE_SUGGESTIONS_API } from "../utils/constants";
 import Suggestions from "./Suggestions";
 import { cacheSuggestions } from "../utils/suggestionslice";
@@ -14,6 +14,7 @@ const [suggestionList,setSuggestionsList]=useState([]);
 const [showSuggestions,setShowSuggestions]=useState(false);
 const navigate=useNavigate();
 const dispatch=useDispatch();
+const isSidebarModal=useSelector(store=>store.app.isSidebarModal);
 
 const suggestion=useSelector(store=>store.suggestion);
 
@@ -45,24 +46,29 @@ function submitHandler(e){
 }
 
 function toggleMenuHandler(){
-   dispatch(toggleMenu());
+   if(isSidebarModal===true) {
+    dispatch(openSidebarModal());
+   }
+   else{
+    dispatch(toggleMenu());
+   }
 }
 
   return (
-    <nav className="navbar">
-      <div className="first-part">
-        <div className="menu" onClick={()=>toggleMenuHandler()}>
+    <nav className={styles.navbar}>
+      <div className={styles.first_part}>
+        <div className={styles.menu} onClick={()=>toggleMenuHandler()}>
           <i className="ri-menu-line"></i>
         </div>
-        <Link to="/" className="logo-part">
+        <Link to="/" className={styles.logo_part}>
           <img src={Logo} alt="youtube logo" height="30px" />
           <h3>YouTube</h3>
           <sup>IN</sup>
         </Link>
       </div>
-      <div className="second-part">
-        <div className="search-block">
-          <div className="search-field">
+      <div className={styles.second_part}>
+        <div className={styles.search_block}>
+          <div className={styles.search_field}>
             <form onSubmit={(e)=> submitHandler(e)}>
             <input type="text"
            placeholder="Search" 
@@ -73,25 +79,25 @@ function toggleMenuHandler(){
           />
           </form>
           </div>
-          <Link to={"/search"} className="search-icon">
+          <Link to={"/search"} className={styles.search_icon}>
             <i className="ri-search-line"></i>
             </Link>
         </div>
         {
           (showSuggestions && searchInput) &&  <Suggestions suggestionList={suggestionList}/>
         }
-        <div className="voice-search">
+        <div className={styles.voice_search}>
         <i className="ri-mic-fill"></i>
         </div>
       </div>
-      <div className="third-part">
-        <div className="video-icon">
+      <div className={styles.third_part}>
+        <div className={styles.video_icon}>
         <i className="ri-video-add-line"></i>
         </div>
-        <div className="bell-icon">
+        <div className={styles.bell_icon}>
         <i className="ri-notification-2-line"></i>
         </div>
-        <div className="user-icon">
+        <div className={styles.user_icon}>
         <i className="ri-user-fill"></i>
         </div>
       </div>

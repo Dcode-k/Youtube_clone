@@ -10,6 +10,8 @@
     padding: 8px 8px;
     text-wrap: nowrap;
     cursor: pointer;
+    display: flex;
+    align-items: center;
 }
 .button:hover{
     background-color:#5a5a5a ;
@@ -18,4 +20,15 @@
 .allBtn{
     background-color: white;
     color: black;
+}
+
+/* mobile-view */
+@media (max-width:320px){
+    .button{
+        height: 20px;
+        border-radius:5px;
+        font-size: 15px;
+        text-wrap: nowrap;
+        cursor: pointer;
+    }
 }

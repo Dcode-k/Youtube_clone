@@ -1,4 +1,4 @@
-import Sidebar from './Sidebar.jsx';
+import {Sidebar, SidebarModal} from './Sidebar.jsx';
 import '../styles/Body.css'
 import MainContainer from './MainContainer.jsx';
 import { Route, Routes } from 'react-router-dom';
@@ -9,9 +9,10 @@ import CompressedSideBar from './CompressedSideBar.jsx';
 
 const Body=()=>{
     const isMenuOpen=useSelector(store=>store.app.isMenuOpen);
+    const isSidebarModal=useSelector(store=>store.app.isSidebarModal);
     return (
         <div className='body-container'>
-            {isMenuOpen? <Sidebar/>:<CompressedSideBar/>}
+            {isSidebarModal? null: isMenuOpen? <Sidebar/>:<CompressedSideBar/>}
            <Routes>
                <Route path='/' element={<MainContainer/>}/>
                <Route path='/watch' element={<WatchPage/>}/>

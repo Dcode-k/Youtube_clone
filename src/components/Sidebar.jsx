@@ -1,10 +1,18 @@
-import { useSelector } from "react-redux";
+// import { useSelector } from "react-redux";
+import '../styles/SidebarModal.css'
 import "../styles/Sidebar.css";
-const Sidebar = () => {
+import { Link } from 'react-router-dom';
+import Logo from "../assets/youtube.png";
+import { useDispatch, useSelector } from 'react-redux';
+import {closeSidebarModal } from '../utils/appslice';
+import { useEffect } from 'react';
 
-  const isMenuOpen=useSelector(store=>store.app.isMenuOpen);
 
-  if(!isMenuOpen) return null;
+export const Sidebar = () => {
+
+  // const isMenuOpen=useSelector(store=>store.app.isMenuOpen);
+
+  // if(!isMenuOpen) return null;
 
   return (
     <div>
@@ -162,4 +170,43 @@ const Sidebar = () => {
   );
 };
 
-export default Sidebar;
+
+
+ export const SidebarModal=()=>{
+const dispatch=useDispatch();
+const isSidebarModalOpen=useSelector(store=>store.app.isSidebarModalOpen)
+
+  function closeSidebarModalHandler(){
+    console.log("hdshbc");
+    dispatch(closeSidebarModal());
+ }
+  useEffect(()=>{
+    if(isSidebarModalOpen)
+    document.body.style.overflow = 'hidden';
+  else
+    document.body.style.overflow = 'unset';
+  },[isSidebarModalOpen])
+
+
+if(!isSidebarModalOpen) return null;
+
+  return(
+    <div className="sidebarModal_wrapper" onClick={()=>dispatch(closeSidebarModal())}>
+       <div className="sidebarmodal_container">
+      <div className="first-part-modal">
+        <div className="menu-modal" onClick={()=>closeSidebarModalHandler()}>
+          <i className="ri-menu-line"></i>
+        </div>
+        <Link to="/" className="logo-part-modal">
+          <img src={Logo} alt="youtube logo" height="30px" />
+          <h3>YouTube</h3>
+          <sup>IN</sup>
+        </Link>
+      </div>
+      <Sidebar/>
+    </div>
+    </div>
+    
+  )
+}
+

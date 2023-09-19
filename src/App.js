@@ -1,25 +1,20 @@
-import 'remixicon/fonts/remixicon.css'
-import './App.css';
-import Header from './components/Header.jsx'
-import Body from './components/Body';
-import { Provider } from 'react-redux';
-import store from './utils/store';
-import {Routes,Route } from 'react-router-dom';
-import MainContainer from './components/MainContainer';
-import WatchPage from './components/WatchPage';
-import SearchPage from './components/SearchPage';
-
-
+import "remixicon/fonts/remixicon.css";
+import "./App.css";
+import Header from "./components/Header.jsx";
+import Body from "./components/Body";
+import { useDispatch, useSelector } from "react-redux";
+import { SidebarModal } from "./components/Sidebar";
+import { closeSidebarModal } from "./utils/appslice";
 
 function App() {
+  const isSidebarModal = useSelector((store) => store.app.isSidebarModal);
+
   return (
-    <Provider store={store}>
-      <div className='app-container' >
-        <Header/>
-        <Body/>
-       </div>
-    </Provider>
-    
+    <div>
+      <Header />
+      {isSidebarModal && <SidebarModal />}
+      <Body />
+    </div>
   );
 }
 

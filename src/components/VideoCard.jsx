@@ -28,7 +28,9 @@ if(!isMenuOpen){
                 <div className='video-title'>
                    {videoTitle}
                    <div className="channel-title">
+                    <h4>
                     {channelTitle}
+                    </h4>
                     <p>
                        {Math.trunc(views/1000)}K views <span>.</span>
                     </p>

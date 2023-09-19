@@ -9,3 +9,10 @@
     /* background-color: aqua; */
      /* overflow: scroll; */
 }
+
+/* mobile-view */
+@media (max-width:320px){
+    .video-container{
+         margin-top:0px;
+    }
+}

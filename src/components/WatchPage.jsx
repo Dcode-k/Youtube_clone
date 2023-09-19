@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
-import { closeMenu } from "../utils/appslice";
+import { closeMenu,closeSidebarModal,destroySidebarModal,makeSidebarModal } from "../utils/appslice";
 import { useSearchParams } from "react-router-dom";
 import Carousel from "./Carousel";
 import "../styles/WatchPage.css";
@@ -51,10 +51,16 @@ const WatchPage = () => {
     const videodetails = await data.json();
     setVideoInfo(videodetails.items);
   }
-
+   
+function cleanupwork(){
+  dispatch(closeSidebarModal());
+   dispatch(destroySidebarModal());
+}
   //for closing sidebar
   useEffect(() => {
     dispatch(closeMenu());
+    dispatch(makeSidebarModal());
+    return ()=> cleanupwork();
   }, []);
 
   return (

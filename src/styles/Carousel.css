@@ -16,3 +16,13 @@
 .carousel-btn:hover{
     background-color: gray;
 }
+
+/* mobile view */
+@media (max-width:320px){
+    .carousel{
+        border-bottom: 1px solid gray;
+    }
+    .carousel-btn{
+        display: none;
+    }
+}
