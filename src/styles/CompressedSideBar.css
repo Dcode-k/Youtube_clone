@@ -15,3 +15,16 @@
 .compressedSideBarIcon:hover{
     background-color: #5a5a5a;
 }
+
+@media (max-width:768px){
+    .compressedSideBar-container{
+        /* background-color: aqua; */
+        width: 8vw;
+    }
+    .compressedSideBarIcon{
+        /* background-color: blanchedalmond; */
+        font-size: 15px;
+        height: 60px;
+        /* margin: 35px 0; */
+    }
+}

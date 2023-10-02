@@ -10,9 +10,10 @@ import CompressedSideBar from './CompressedSideBar.jsx';
 const Body=()=>{
     const isMenuOpen=useSelector(store=>store.app.isMenuOpen);
     const isSidebarModal=useSelector(store=>store.app.isSidebarModal);
+    const isMobile=window.innerWidth <= 768;
     return (
         <div className='body-container'>
-            {isSidebarModal? null: isMenuOpen? <Sidebar/>:<CompressedSideBar/>}
+            { isMobile?<CompressedSideBar/>: isSidebarModal? <SidebarModal/> : isMenuOpen? <Sidebar/>:<CompressedSideBar/>}
            <Routes>
                <Route path='/' element={<MainContainer/>}/>
                <Route path='/watch' element={<WatchPage/>}/>
